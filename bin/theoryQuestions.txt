@@ -1,0 +1,13 @@
+Q) which of the below statement are true? choose 2 options : 
+1)atomic is a keyword in java .
+2) All atomic classes in java have get and set methods.
+3)Atomic classes support lock-free thread-safe programming on single variables
+4)AtomicDouble is an atomic class represents a double value that may be updated Automatically
+
+ChatGPT
+The true statements are:
+Atomic classes support lock-free thread-safe programming on single variables.
+AtomicDouble is an atomic class that represents a double value that may be updated automatically.
+
+====================================================================
+

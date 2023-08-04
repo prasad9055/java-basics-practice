@@ -1,0 +1,492 @@
+Consider the below module descriptor and choose the 2 right Options
+module com.infy.mymodule{
+}
+
+options:1)the module com.infy.mymodule can neither be used by other modules nor can it use other modules 
+2)com.infy.mymodule can be accessed by any other module in the application
+3)com.infy.mymodule can only access java.base module
+4)only java.base module can access all the packages of com.infy.mymodule 
+
+Ans) 
+1)The module com.infy.mymodule can neither be used by other modules nor can it use other modules.
+2)com.infy.mymodule can be accessed by any other module in the application.
+
+======================================================================================
+which of the below statements are true about volatile keyword in java ? choose 3 options 
+
+Options:1)A volatile variable can be read and write 
+2)A write to a volatile field happen-before every subsequent read of that field
+3)Changes to a volatile variable are always visible to other threads
+4)A volatile variable can only be read but not write 
+5)Changes to a volatile variable are not visible to other threads
+
+Ans)
+A volatile variable can be read and write.
+A write to a volatile field happens-before every subsequent read of that field.
+Changes to a volatile variable are always visible to other threads.
+
+====================================================================================
+A module descriptor can provide which of the following information ? choose right  3 options
+1)Name of the module
+2)Modules it requires
+3)The version of the module 
+4)Packages it exports
+5)Classes it encapsulates
+6)Services it Provides or uses 
+
+Ans)
+Therefore, the four correct options are:
+
+Name of the module
+Modules it requires
+Packages it exports
+Services it Provides or uses
+
+============================================
+	Whats is the output of the below code snippet
+	class Order{
+		int id =101;
+	}
+	class Invoice extends Order{
+		int no=201;
+	}
+	class OrderTester extends Invoice implements Cloneable{
+		int bill=301;
+		
+		public static void main(String[] args)throws CloneNotSupportedException {
+			OrderTester r1 = new OrderTester();
+			OrderTester r2 = (OrderTester)r1.clone();
+			r1.id=100;
+			r1.no=200;
+			r1.bill=300;
+			System.out.println(r2.id +" "+r2.no+" "+r2.bill);
+		}
+	}
+	
+	O/p --> 101 201 301 
+
+==============================================================================
+
+which  among the following are valid funtional interfaces ? choose right 2 options 
+
+options:
+ 1)
+@FunctionalInterface
+interface Assign {
+ double assess(int id,double percentage);
+}
+
+2)
+@FunctionalInterface
+interface Assign {
+ double assess(int id,double percentage);
+default double computeGrade(double cost){
+  // code for computing grade
+return 0.0;
+}
+}
+
+3)
+@FunctionalInterface
+interface Assign {
+ double assess(int id,double percentage);
+default double computeGrade(double cost){
+  // code for computing grade
+return 0.0;
+}
+static void display(){
+System.out.println("Display the grade")
+}
+}
+4)
+@FunctionalInterface
+interface Assign {
+ double assess(int id,double percentage);
+default double computeGrade(double cost){
+  // code for computing grade
+return 0.0;
+}
+static void display(){
+System.out.println("Display the grade")
+}
+public String toString();
+public boolean equals(Object ibj);
+}
+
+Ans
+1 and 2 only correct 
+
+================================================================
+Predict the output ?
+
+public class Demo{
+  
+public static void main(String[] x){
+
+Set<String> skills = new ConcurrentSkipListSet<>();
+skills.add("java");
+skills.add("C");
+skills.add("Python");
+skills.add("C++");
+System.out.println(skills.stream().collect(collectors.joining(",")))
+
+}
+
+}
+
+Ans : 
+C,C++,Python,java
+===================================================================
+
+for the below code choose the suitable options to be added in line1, line2, and line3 to avoid the compile-time warning
+	
+	class Tester<T>{
+		private List<T> books = new ArrayList<>();
+		
+		//line 1
+		private final void add(T...toAdd) {
+			for(T book:toAdd) {
+				books.add(book);
+				}
+		}
+		//line 2
+		public static void main(String[] args) {
+					
+		//line 3
+			Tester t = new Tester();
+			t.add("java","Docker");
+			System.out.println(t.books);
+	}
+	}
+options:
+1)@safeVarags//line 1 @SuppressWarnings({"unchecked","rawtypes"}) // line 2 @SuppressWarnings("rawtypes")//line 3
+2)@safeVarags//line 1 @SuppressWarnings("rawtypes") // line 2 @SuppressWarnings("unchecked")//line 3	
+3)@safeVarags//line 1 @SuppressWarnings("unchecked") // line 2 @SuppressWarnings("rawtypes")//line 3	
+1)@safeVarags//line 1 @SuppressWarnings("unchecked") // line 2 @SuppressWarnings("all")//line 3	
+
+Ans : --
+3)@safeVarags//line 1 @SuppressWarnings("unchecked") // line 2 @SuppressWarnings("rawtypes")//line 3
+
+===============================================================================
+
+	What will be the output ?
+	class Employee{
+		String name ;
+	}
+	public class ContactEmployee extends Employee {
+		int salary ;
+		public static void main(String[] args)throws IOException , CalssNotFoundException {
+			
+			ContactEmployee cemp = new ContactEmployee(10000,"sam");
+			FileOutputStream fos = new FileOutputStream("C;/serial.ser");
+			ObjectOutputStream oss = new ObjectOutputStream(fos);
+			oss.writeObject(cemp);
+			FileInputStream fis = new FileInputStream("c;/serial.ser");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			cemp = (ContactEmployee)ois.readObject();
+			System.out.println(cemp);
+			}
+		public ContactEmployee(int salary ,String name) {
+			super.name=name;
+			this.salary=salary;
+		}
+		public String toString() {
+			return super.name+salary;
+		}
+	}
+	
+Options :
+	1) it prints Sam 10000
+2)Runtime Error as Object cannot be written to a file in java
+3)Runtime error as class cannot be serialized 
+4)Runtime error as writing and reading of file with.ser extension is not possible 
+
+Ans :-- 1) it prints Sam 10000
+
+========================================================
+the base module of all the modules in java 9 is ?
+
+options: 
+1)jdk.*
+2)java.base
+3)java.*
+4)java.lang
+
+Ans )
+2)java.base 
+========================================================
+Given that method getConnection() return a valid Connection Object, the query variable defines a valid SQL statement, and class Tester print 0.
+Choose 3 Correct options which can be true for the line 1 code:
+
+class Tester{
+public static void main(String[] args){
+
+try{
+      String query="... ";  // line 1
+      Connection con = getConnection();
+     PreparedStatement statement = con.preParedStatement(query);
+System.out.println(statement.executeUpdate());
+}
+catch(SQLExceotion e){
+System.out.println(e)
+}
+
+}
+}
+Options :
+1)Line 1 defines an SQL SELECT statement that returned Zero rows
+2)Line 1 defines an SQL UPDATE statement that affected Zero rows
+3)Line 1 defines an SQL DELETE statement that affected Zero rows
+4)Line 1 defines an SQL CREATE TABLE statement, which would always returned Zero rows
+
+Ans):===
+1)Line 1 defines an SQL SELECT statement that returned Zero rows
+2)Line 1 defines an SQL UPDATE statement that affected Zero rows
+3)Line 1 defines an SQL DELETE statement that affected Zero rows
+
+==============================================================================
+
+which among the functional Interfaces can be used while an Object needs to get evaluated a test Condition and a boolean value requires to
+be returned based on whether the condition has been successfully met ot not .
+
+say for example, want to test whether the user enterned String length is greather than 10 characters ? 
+
+Options : 
+1)Function
+2)Predicate
+3)Consumer
+4)Suppiler
+
+Ans)
+2) Predicate 
+
+=================================================================================
+	Predict the output 
+	class Tester{
+	     
+	  public static void main(String[] args){
+	   Tester tst = new Tester();
+	   tst.addNames(Arrays.asList("Ria","Jai" ,"Jack"),Arrays.asList("sam","Tanya"));
+	}
+	  private final void addNames(List<String>... names) {
+		  
+		  for(List<String> lst:names)
+			  System.out.println(lst);
+	  }
+	}
+	
+Options:
+1)[Ria,Jai,Jack][sam,Tanya]	
+2)[Ria,Jai,Jack,sam,Tanya]	
+3)Compilation error add @SafeVarargs before addNames method 
+4)[Ria,Jai,Jack]
+
+Ans ) 1)[Ria,Jai,Jack][sam,Tanya]	
+
+============================================================
+
+Given that method getConnection() return a valid Connection Object, the query variable defines a valid SQL statement, in DB have 2 Tables 
+one table have 2 rows 
+second table have 1 row 
+Choose the Correct Option  :
+
+class Tester{
+public static void main(String[] args){
+
+try{
+      String query="... ";  // line 1
+      Connection con = getConnection();
+     PreparedStatement statement = con.preParedStatement("select * from Product");
+     ResultSet rs = ps.executeQuery();
+    while(rs.next()){
+    System.out.println("In Loop");
+rs.next();
+}
+}
+catch(SQLExceotion e){
+System.out.println(e)
+}
+
+}
+}
+
+Options: 
+1)For 2 rows output:in Loop in Loop For 1 row output :in Loop
+2)For 2 rows output:Loop For 1 row output :in Loop in Loop
+3)For 2 rows output:in Loop For 1 row output :in Loop
+4)For 2 rows output:in Loop in Loop For 1 row output : 
+
+Ans:--
+1)For 2 rows output:in Loop in Loop For 1 row output :in Loop
+
+======================================================================
+Given the Statement 
+
+volatile LocalDate date = null;
+
+Choose the right Option 
+1)volatile reference type cannot be inialized to null 
+2)it is a valid statement 
+3)volatile cannot be applied to reference types 
+4)volatile cannot be applied to inbuilt reference types 
+
+
+Ans : 2)it is a valid statement  
+============================================
+
+
+Given that method getConnection() return a valid Connection Object and Customer table has no row, what will be the output ?
+Choose the Correct Option  :
+
+class Tester{
+public static void main(String[] args){
+
+try{
+      Connection con = getConnection();
+     PreparedStatement statement = con.preParedStatement("select * from Customer");
+     ResultSet rs = ps.executeQuery();
+   
+   if(rs.next())rs.getString(2); // line 1
+
+
+}
+catch(SQLExceotion e){
+System.out.println(e)
+}
+
+}
+}
+
+Options:
+1)Runtime Exception at line 1 as getString(2) is not possible with the given select query 
+2)No exception, code runs fine 
+3)Runtime Exception at line 1 rs.next() will throw an exception
+4)Compile time exception at line 1 as getString(2) is not possible with the given select query 
+
+Ans::
+
+1)Runtime Exception at line 1 as getString(2) is not possible with the given select query 
+
+=============================================================================================
+
+which of the following are the fetatures of Parallel Stream ? (choose 2 options)
+
+Options:
+1)Parallel Stream internally uses Fork/Join framework 
+2)Parallel Stream is always efficient 
+3) utilize multiple cores of the processor 
+4)it works as expected with stateful methods
+
+Ans : 
+1)Parallel Stream internally uses Fork/Join framework 
+3) utilize multiple cores of the processor 
+
+==========================================================================
+
+predict the output of the code : 
+
+public class NumberUtil{
+
+   public static void main (String[] args){
+
+   Stream<Integer> inputs = Stream.of(8,7,10,15,20,22,30);
+   System.out.println(inputs.filter(n)->n%5==0).count());
+}
+
+}
+
+Options: 
+1)4
+2)10 15 20 30 
+3)Compile time error 
+4)Runtime exception
+
+Ans : 
+1)  4
+
+===============================================================
+which of the following Optional can initialize an Optional<String>str? choose 2 Options
+
+1)Optional<String> str = Optional.of("initialised")
+2)Optional<String> str = Optional.empty()
+3)Optional<String> str = "" 
+4)Optional<String> str = "initialised"
+
+Ans : 
+1)Optional<String> str = Optional.of("initialised")
+2)Optional<String> str = Optional.empty()
+
+==================================================================
+identify the atomic classes provided by java choose 3 Options 
+
+1)Atomicint
+2)AtomicInteger
+3)AtomicDouble
+4)AtomicReference
+5)AtomicLong
+6)AtomicCharacter
+
+Ans :
+So, the correct options are:
+AtomicInteger
+AtomicReference
+AtomicLong
+
+===================================================================
+Given 
+String arr[] = {"Test" , "Java8","Features"};
+How can a Stream be obtained from the given String array arr[] ?
+
+Options: 
+1)Arrays.stream(arr[]);
+2)Arrays.stram(arr);
+3)arr.stream();
+4)arr.stream
+
+ans :
+3)arr.stream();
+
+=================================================================
+public class IOQ{
+
+  public static void main (String[] args) throws IOException{
+
+  FileOutputStream fos = new FileOutputStream("c:/output.txt");
+String data = "Learning";
+fos.write(data.getBytes());
+fos.close();
+fos = new FileOutputStream("c:/output.txt");
+data = "java is really fun !" ;
+fos.write(data.getBytes());
+fos.close();
+}
+
+}
+
+Assuming the file does not exist in the C drive what will be the output ? 
+
+Options:
+1)the file Containing - Learning
+2)the file Containing - Learning java is really fun!
+3)the file Containing - Java us really fun!
+4)An exception occurs at runtime "Cannot open the outputStream twice"
+
+Ans : 
+2)the file Containing - Learning java is really fun!
+
+====================================================================
+Module A has a Package called a and Module B wants to Access that package . what is the minimum Configuration reqired to achive the functionally ?
+
+Options :
+1)A{}B{}
+2)A{exports a}B{}
+3)A{exports a}B{requires A}
+4)A{} B{requires A}
+
+Ans:
+So, the correct option is:
+A{exports a} B{requires A}
+
+	
+	
+
